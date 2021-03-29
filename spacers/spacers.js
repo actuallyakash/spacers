@@ -37,6 +37,9 @@ function spacers( options ) {
 
         element.classList.add( 'spacer-initialised' );
 
+        // settings element's position relative
+        element.style.position = "relative";
+
         html = '<div class="spacers-wrapper">';
 
         // Padding
