@@ -1,9 +1,5 @@
 ## TODO: options needed
 
-* defaultSpacing (default margin/padding values) | type: string
-* defaultPadding (an object with top, bottom, left, right values) | type: object
-* defaultMargin (an object with top, bottom, left, right values) | type: object
-* spacingUnit (to change default spacing unit of spacers like em, rem, in, cm ..etc) | type: string
 * showOnHover (to show spacers only on hover) | type: boolean
 * showSpacingValue (to show the margin/padding number in the center of spacer) | type: boolean
 * showLabel: (to show the label beside spacing value) | type: string
@@ -18,3 +14,7 @@
 * onDragEnd (a function for using the values when drag is ended) | type: function | ref: interactjs
 * containedArea (use if you're not able to find the element (ex- iframe)) | type: object
 * spacerClass (for adding classes in the spacers) | type: string
+* defaultSpacing (default margin/padding values) | type: string
+* defaultPadding (an object with top, bottom, left, right values) | type: object
+* defaultMargin (an object with top, bottom, left, right values) | type: object
+* spacingUnit (to change default spacing unit of spacers like em, rem, in, cm ..etc) | type: string

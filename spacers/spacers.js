@@ -14,14 +14,14 @@ function spacers( options ) {
         left: options.defaultMargin ? options.defaultMargin.left : '',
         bottom: options.defaultMargin ? options.defaultMargin.bottom : '',
         right: options.defaultMargin ? options.defaultMargin.right : ''
-    }
+    };
 
     padding = {
         top: options.defaultPadding ? options.defaultPadding.top : '',
         left: options.defaultPadding ? options.defaultPadding.left : '',
         bottom: options.defaultPadding ? options.defaultPadding.bottom : '',
         right: options.defaultPadding ? options.defaultPadding.right : ''
-    }
+    };
 
     // Location to append spacers
     switch( options.appendHtml ) {
@@ -59,8 +59,11 @@ function spacers( options ) {
         let startX, startY, startWidth, startHeight, position, dragSide;
 
         spacers.forEach(spacer => {
-
-            document.documentElement.style.setProperty( '--spacer-size', defaultSpacing );
+            
+            // Adding default spacing
+            if( !options.defaultPadding || !options.defaultMargin ) {
+                document.documentElement.style.setProperty( '--spacer-val', defaultSpacing );
+            }
 
             // Addding custom-defined classes
             if ( options.spacerClass ) {
@@ -68,7 +71,7 @@ function spacers( options ) {
             }
 
             // Adding default spacing
-            spacerValue = spacer.getAttribute('data-size') ? spacer.getAttribute('data-size') + "px" : defaultSpacing + spacingUnit;
+            spacerValue = spacer.getAttribute('data-size') ? spacer.getAttribute('data-size') : defaultSpacing;
             spacerPosition = spacer.getAttribute('data-position');
 
             if( spacerPosition == "top" || spacerPosition == "bottom" ) {
