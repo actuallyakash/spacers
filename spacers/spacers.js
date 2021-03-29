@@ -5,6 +5,7 @@ function spacers( options ) {
     let defaultSpacing = options.defaultSpacing ? options.defaultSpacing : '8px';
     let spacingUnit = options.spacingUnit ? options.spacingUnit : "px";
     let enablePadding = options.padding == undefined || options.padding == true ? true : false;
+    let showOnHover = options.showOnHover ? ' on-hover' : '';
     let enableMargin = options.margin ? true : false;
     let html, appendHtml;
     let margin, padding;
@@ -41,7 +42,7 @@ function spacers( options ) {
         // settings element's position relative
         element.style.position = "relative";
 
-        html = '<div class="spacers-wrapper">';
+        html = '<div class="spacer-wrapper' + showOnHover + '">';
 
         // Padding
         html += '<div data-type="padding" data-position="top" data-dragging="bottom" data-size="'+ padding.top +'" class="spacer spacer-' + spacerId + ' spacer-top"></div><div data-type="padding" data-position="bottom" data-dragging="top" data-size="'+ padding.bottom +'" class="spacer spacer-' + spacerId + ' spacer-bottom"></div><div data-type="padding" data-position="left" data-dragging="right" data-size="'+ padding.left +'" class="spacer spacer-' + spacerId + ' spacer-left"></div><div data-type="padding" data-position="right" data-dragging="left" data-size="'+ padding.right +'" class="spacer spacer-' + spacerId + ' spacer-right"></div>';
