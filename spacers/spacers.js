@@ -192,6 +192,20 @@ function spacers( options ) {
         function stopDrag(e) {
             document.documentElement.removeEventListener('mousemove', doDrag, false);
             document.documentElement.removeEventListener('mouseup', stopDrag, false);
+
+            let  data = {};
+
+            if( enablePadding ) {
+                Object.assign( data, { 'padding': padding });
+            }
+
+            if( enableMargin ) {
+                Object.assign( data, { 'margin': margin });
+            }
+
+            if( options.onDragEnd ) {
+                options.onDragEnd(data);
+            }
             
         }
 

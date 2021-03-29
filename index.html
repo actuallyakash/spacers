@@ -85,6 +85,9 @@
         spacers({
             element: '.inner-element',
             appendHtml: 'begin',
+            onDragEnd: function( data) {
+                console.log(data);
+            }
         });
     </script>
 </html>
