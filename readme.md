@@ -1,7 +1,5 @@
 ## TODO: options needed
 
-* containedArea (use if you're not able to find the element (ex- iframe)) | type: object
-* spacerClass (for adding classes in the spacers) | type: string
 * defaultSpacing (default margin/padding values) | type: string
 * defaultPadding (an object with top, bottom, left, right values) | type: object
 * defaultMargin (an object with top, bottom, left, right values) | type: object
@@ -18,4 +16,5 @@
 * padding (to enable padding, which'll be default behaviour) | type: boolean
 * margin (to enable margin) | type: boolean
 * onDragEnd (a function for using the values when drag is ended) | type: function | ref: interactjs
-
+* containedArea (use if you're not able to find the element (ex- iframe)) | type: object
+* spacerClass (for adding classes in the spacers) | type: string

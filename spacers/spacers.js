@@ -1,5 +1,6 @@
 function spacers( options ) {
 
+    let document = options.containedArea ? options.containedArea : window.document;
     let elements = document.querySelectorAll( options.element );
     let defaultSpacing = options.defaultSpacing ? options.defaultSpacing : '8px';
     let spacingUnit = options.spacingUnit ? options.spacingUnit : "px";
@@ -60,6 +61,11 @@ function spacers( options ) {
         spacers.forEach(spacer => {
 
             document.documentElement.style.setProperty( '--spacer-size', defaultSpacing );
+
+            // Addding custom-defined classes
+            if ( options.spacerClass ) {
+                spacer.classList.add( options.spacerClass );
+            }
 
             // Adding default spacing
             spacerValue = spacer.getAttribute('data-size') ? spacer.getAttribute('data-size') + "px" : defaultSpacing + spacingUnit;
