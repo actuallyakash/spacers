@@ -9,6 +9,10 @@ function spacers( options ) {
     let enableMargin = options.margin ? true : false;
     let html, appendHtml;
     let margin, padding;
+    let spacingProperties = [];
+    enableMargin ? spacingProperties.push( 'margin' ) : '';
+    enablePadding ? spacingProperties.push( 'padding' ) : '';
+    let spacingDimensions = [ 'top', 'right', 'bottom', 'left' ];
 
     margin = {
         top: options.defaultMargin ? options.defaultMargin.top : '',
@@ -42,19 +46,36 @@ function spacers( options ) {
         // settings element's position relative
         element.style.position = "relative";
 
-        html = '<div class="spacer-wrapper' + showOnHover + '">';
+        let spacerDivs = '';
+        let spacerSize;
 
-        // Padding
-        html += '<div data-type="padding" data-position="top" data-dragging="bottom" data-size="'+ padding.top +'" class="spacer spacer-' + spacerId + ' spacer-top"></div><div data-type="padding" data-position="bottom" data-dragging="top" data-size="'+ padding.bottom +'" class="spacer spacer-' + spacerId + ' spacer-bottom"></div><div data-type="padding" data-position="left" data-dragging="right" data-size="'+ padding.left +'" class="spacer spacer-' + spacerId + ' spacer-left"></div><div data-type="padding" data-position="right" data-dragging="left" data-size="'+ padding.right +'" class="spacer spacer-' + spacerId + ' spacer-right"></div>';
+        spacingProperties.forEach( property => {
+            switch( property ) {
+                case 'padding':
+                    spacingDimensions.forEach( dim => {
 
-        // Margin
-        html += '<div data-type="margin" data-position="top" data-dragging="bottom" data-size="'+ margin.top +'" class="spacer spacer-' + spacerId + ' spacer-top"></div><div data-type="margin" data-position="bottom" data-dragging="top" data-size="'+ margin.bottom +'" class="spacer spacer-' + spacerId + ' spacer-bottom"></div><div data-type="margin" data-position="left" data-dragging="right" data-size="'+ margin.left +'" class="spacer spacer-' + spacerId + ' spacer-left"></div><div data-type="margin" data-position="right" data-dragging="left" data-size="'+ margin.right +'" class="spacer spacer-' + spacerId + ' spacer-right"></div>';
+                        spacerSize = ( padding[dim] == "0" ? defaultSpacing : padding[dim] );
 
-        html += '</div>';
+                        spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span></span> </div>';
+                    });
+                break;
+
+                case 'margin':
+                    spacingDimensions.forEach( dim => {
+
+                        spacerSize = ( margin[dim] == "0" ? defaultSpacing : margin[dim] );
+
+                        spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span></span> </div>';
+                    });
+                break;
+            }
+        });
+
+        html = '<div class="spacer-wrapper' + showOnHover + '">' + spacerDivs + '</div>';
 
         element.insertAdjacentHTML( appendHtml, html );
 
-        let spacers = Object.values(document.getElementsByClassName( 'spacer-' + spacerId ));
+        let spacers = Object.values( document.getElementsByClassName( 'spacer-' + spacerId ) );
 
         // Adding spacer functionality
         let startX, startY, startWidth, startHeight, position, dragSide;
@@ -108,103 +129,38 @@ function spacers( options ) {
 
         function doDrag( e ) {
             
-            let yIndex = (startHeight + e.clientY - startY);
-            let xIndex = dragSide == "left" ? (startWidth - e.clientX + startX) : (startWidth + e.clientX - startX);
-
-            // setting padding
-            if ( spacerType == "padding" ) {
-                switch( position ) {
-                    case 'top' : padding.top = yIndex;
-                    break;
-                    case 'bottom': padding.bottom = yIndex;
-                    break;
-                    case 'left': padding.left = xIndex;
-                    break;
-                    case 'right': padding.right = xIndex;
-                    break;
-                }
+            let spacingValue;
+            if( position == 'top' || position == 'bottom' ) {
+                spacingValue = (startHeight + e.clientY - startY);
             }
 
-            // setting margin
-            if ( spacerType == "margin" ) {
-                switch( position ) {
-                    case 'top' : margin.top = yIndex;
-                    break;
-                    case 'bottom': margin.bottom = yIndex;
-                    break;
-                    case 'left': margin.left = xIndex;
-                    break;
-                    case 'right': margin.right = xIndex;
-                    break;
-                }
+            if( position == 'left' || position == 'right' ) {
+                spacingValue = ( dragSide == 'left' ? (startWidth - e.clientX + startX) : (startWidth + e.clientX - startX) );
             }
 
-            // top/bottom (y)
-            if( position == "top" || position == "bottom" ) {
-                
-                // Threshold
-                if( yIndex < 5 || yIndex >= 300 ) {
-                    return;
-                }
+            // Setting Margin/Padding value
+            setPropertyValue( spacerType, position, spacingValue );
 
-                // setting data-size attribute
-                currentSpacer.setAttribute( "data-size", yIndex );
+            // updating data-size attribute and size value
+            currentSpacer.setAttribute( 'data-size', spacingValue );
+            currentSpacer.querySelector('.spacer-indicator .spacer-size').innerText = spacingValue;
 
-                yIndex += spacingUnit;
+            spacingValue += 'px';
 
-                // Increasing spacer height
-                currentSpacer.style.height = yIndex;
-
-                if ( position == "top" ) {
-                    if ( spacerType == "padding" ) {
-                        element.style.paddingTop = yIndex;
-                    } else {
-                        element.style.marginTop = yIndex;
-                    }
-                } else if ( position == "bottom" ) {
-                    if ( spacerType == "padding" ) {
-                        element.style.paddingBottom = yIndex;
-                    } else {
-                        element.style.marginBottom = yIndex;
-                    }
-                }
-            }
-
-            // left/right (x)
-            if( position == "left" || position == "right" ) {
-
-                // Threshold
-                if ( xIndex < 5 || xIndex >= 300 ) {
-                    return;
-                }
-
-                // setting data-size attribute
-                currentSpacer.setAttribute( "data-size", xIndex );
-
-                xIndex += spacingUnit;
-
-                // Increasing spacer width
-                currentSpacer.style.width = xIndex;
-
-                if ( position == "left" ) {
-                    if ( spacerType == "padding" ) {
-                        element.style.paddingLeft = xIndex;
-                    } else {
-                        element.style.marginLeft = xIndex;
-                    }
-                } else if ( position == "right" ) {
-                    if ( spacerType == "padding" ) {
-                        element.style.paddingRight = xIndex;
-                    } else {
-                        element.style.marginRight = xIndex;
-                    }
-                }
+            // Applying padding/margin
+            oppositeProperty = spacerType + position.charAt(0).toUpperCase() + position.substring(1);
+            if ( position == 'top' || position == 'bottom' ) {
+                currentSpacer.style.height = spacingValue;
+                element.style[oppositeProperty] = spacingValue;
+            } else {
+                currentSpacer.style.width = spacingValue;
+                element.style[oppositeProperty] = spacingValue;
             }
         }
 
         function stopDrag(e) {
-            document.documentElement.removeEventListener('mousemove', doDrag, false);
-            document.documentElement.removeEventListener('mouseup', stopDrag, false);
+            document.documentElement.removeEventListener( 'mousemove', doDrag, false );
+            document.documentElement.removeEventListener( 'mouseup', stopDrag, false );
 
             let  data = {};
 
@@ -220,6 +176,27 @@ function spacers( options ) {
                 options.onDragEnd(data);
             }
             
+        }
+
+        function getOppositeDimension( dimension ) {
+            switch( dimension ) {
+                case 'top': return 'bottom';
+                case 'bottom': return 'top';
+                case 'left': return 'right';
+                case 'right': return 'left';
+            }
+        }
+
+        function setPropertyValue( spacerType, position, spacingValue ) {
+            // setting padding
+            if ( spacerType == "padding" ) {
+                padding[position] = spacingValue;
+            }
+            
+            // setting margin
+            if ( spacerType == "margin" ) {
+                margin[position] = spacingValue;
+            }
         }
 
     });

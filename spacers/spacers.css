@@ -9,6 +9,9 @@
     z-index: 2;
     user-select: none;
     touch-action: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .spacer-bottom {
@@ -92,4 +95,28 @@
 
 .spacer-wrapper.on-hover .spacer[data-type=margin]:hover {
     background: var(--margin-bg);
+}
+
+/* Spacer Indicator */
+.spacer .spacer-indicator .spacer-size {
+    color: white;
+    background: #8080ff;
+    padding: 0 4px;
+    border-radius: 3px;
+    margin-right: 6px;
+}
+
+.spacer .spacer-indicator {
+    font-size: 12px;
+    user-select: none;
+    color: white;
+}
+
+.spacer .spacer-indicator {
+    display: none;
+}
+
+.spacer:hover .spacer-indicator,
+.spacer.spacer-active .spacer-indicator {
+    display: block;
 }
