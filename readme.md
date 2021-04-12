@@ -1,6 +1,5 @@
 ## TODO: options needed
 
-* showSpacingValue (to show the margin/padding number in the center of spacer) | type: boolean
 * showLabel: (to show the label beside spacing value) | type: string
 * showLocks: (to link opposite spacers)
 
@@ -18,3 +17,4 @@
 * defaultMargin (an object with top, bottom, left, right values) | type: object
 * spacingUnit (to change default spacing unit of spacers like em, rem, in, cm ..etc) | type: string
 * showOnHover (to show spacers only on hover) | type: boolean
+* showSpacingValue (to show the margin/padding number in the center of spacer) | type: boolean

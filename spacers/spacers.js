@@ -13,6 +13,7 @@ function spacers( options ) {
     enableMargin ? spacingProperties.push( 'margin' ) : '';
     enablePadding ? spacingProperties.push( 'padding' ) : '';
     let spacingDimensions = [ 'top', 'right', 'bottom', 'left' ];
+    let showSpacingValue = options.showSpacingValue == undefined || options.showSpacingValue == true ? true : false;
 
     margin = {
         top: options.defaultMargin ? options.defaultMargin.top : '',
@@ -56,7 +57,7 @@ function spacers( options ) {
 
                         spacerSize = ( padding[dim] == "0" ? defaultSpacing : padding[dim] );
 
-                        spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span></span> </div>';
+                        spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( showSpacingValue ? '' : 'display-none ' ) +'spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span></span> </div>';
                     });
                 break;
 
@@ -65,7 +66,7 @@ function spacers( options ) {
 
                         spacerSize = ( margin[dim] == "0" ? defaultSpacing : margin[dim] );
 
-                        spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span></span> </div>';
+                        spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( showSpacingValue ? '' : 'display-none ' ) +'spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span></span> </div>';
                     });
                 break;
             }
