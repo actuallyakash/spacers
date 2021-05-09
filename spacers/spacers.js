@@ -49,6 +49,9 @@ function spacers( options ) {
         element.style.position = "relative";
 
         let spacerSize, spacerDivs = '';
+        let lockIcon = '<span class="lock icon"></span>';
+        let unlockIcon = '<span class="unlock icon"></span>';
+        let spacerLock = options.enableLock ? '<span class="spacer-lock">' + unlockIcon + '</span>' : '';
 
         spacingProperties.forEach( property => {
             switch( property ) {
@@ -57,7 +60,8 @@ function spacers( options ) {
 
                         spacerSize = ( padding[dim] == "0" ? defaultSpacing : padding[dim] );
 
-                        spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( showSpacingValue ? '' : 'display-none ' ) +'spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span>'+ showLabel +'</span> </div>';
+                        spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( showSpacingValue ? '' : 'display-none ' ) +'spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span>'+ showLabel + spacerLock + '</span> </div>';
+
                     });
                 break;
 
@@ -66,7 +70,8 @@ function spacers( options ) {
 
                         spacerSize = ( margin[dim] == "0" ? defaultSpacing : margin[dim] );
 
-                        spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( showSpacingValue ? '' : 'display-none ' ) +'spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span>'+ showLabel +'</span> </div>';
+                        spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( showSpacingValue ? '' : 'display-none ' ) +'spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span>'+ showLabel + spacerLock + '</span> </div>';
+
                     });
                 break;
             }
@@ -113,7 +118,7 @@ function spacers( options ) {
             });
         });
 
-        function initDrag(event, spacer) {
+        function initDrag( event, spacer ) {
                     
             position = spacer.getAttribute( 'data-position' );
             dragSide = spacer.getAttribute( 'data-dragging' );
@@ -159,7 +164,7 @@ function spacers( options ) {
             }
         }
 
-        function stopDrag(e) {
+        function stopDrag( e ) {
             document.documentElement.removeEventListener( 'mousemove', doDrag, false );
             document.documentElement.removeEventListener( 'mouseup', stopDrag, false );
 

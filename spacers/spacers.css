@@ -124,3 +124,25 @@
 .display-none {
     display: none;
 }
+
+.spacer .spacer-indicator .spacer-lock {
+    cursor: pointer;
+    font-size: 17px;
+    vertical-align: middle;
+}
+
+/* Lock/unlock icon */
+.spacer-lock .icon {
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.spacer-lock .lock {
+    background-image: url('../assets/images/padlock-lock.svg');
+}
+
+.spacer-lock .unlock {
+    background-image: url('../assets/images/padlock-unlock.svg');
+}

@@ -1,6 +1,7 @@
 ## TODO: options needed
 
-* showLocks: (to link opposite spacers)
+* enableLock: (to link opposite spacers)
+    default - <span class="lock"></span>, <span class="unlock"></span>
 
 ## Done
 
