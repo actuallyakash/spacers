@@ -153,6 +153,11 @@ function spacers( options ) {
 
             spacingValue += 'px';
 
+            // Checking for locked spacers
+            if( currentSpacer.classList.contains('spacer-locked') ) {
+                getOppositeSpacer( element, currentSpacer, spacingValue );
+            }
+
             // Applying padding/margin
             oppositeProperty = spacerType + position.charAt(0).toUpperCase() + position.substring(1);
             if ( position == 'top' || position == 'bottom' ) {
@@ -168,6 +173,12 @@ function spacers( options ) {
             document.documentElement.removeEventListener( 'mousemove', doDrag, false );
             document.documentElement.removeEventListener( 'mouseup', stopDrag, false );
 
+            // disabling active spacers
+            if( document.querySelector( '.spacer-active' ) ) {
+                document.querySelector( '.spacer-active' ).classList.remove( 'spacer-active' );
+            }
+
+            // Formatting data
             let  data = {};
 
             if( enablePadding ) {
@@ -204,6 +215,64 @@ function spacers( options ) {
                 margin[position] = spacingValue;
             }
         }
+
+        function getOppositeSpacer( element, spacer, spacerValue ) {
+
+            let oppositeSpacerDim = getOppositeDimension( spacer.getAttribute( 'data-position' ) );
+            let oppositeSpacerType = spacer.getAttribute( 'data-type' );
+            let oppositeSpacerID = spacer.getAttribute( 'data-id' );
+            let oppositeSpacer = document.querySelector( '.spacer-' + oppositeSpacerID + '[data-type="'+ oppositeSpacerType +'"][data-position="'+ oppositeSpacerDim +'"]' );
+
+            // Adding active class
+            oppositeSpacer.classList.add( 'spacer-active' );
+            
+            oppositeSpacer.setAttribute( 'data-size', parseInt( spacerValue, 10 ).toString() );
+            oppositeSpacer.querySelector( '.spacer-indicator .spacer-size' ).innerText = parseInt( spacerValue, 10 ).toString();
+
+            if( oppositeSpacerDim == 'top' || oppositeSpacerDim == 'bottom' ) {
+                oppositeSpacer.style.height = spacerValue;
+            }
+            if( oppositeSpacerDim == 'left' || oppositeSpacerDim == 'right' ) {
+                oppositeSpacer.style.width = spacerValue;
+            }
+
+            // Applying pseudo padding/margin for opposite spacer
+            setPropertyValue( oppositeSpacerType, oppositeSpacerDim, parseInt( spacerValue, 10 ) );
+            let oppositeProperty = oppositeSpacerType + oppositeSpacerDim.charAt(0).toUpperCase() + oppositeSpacerDim.substring(1);
+            element.style[oppositeProperty] = spacerValue;
+        }
+
+        // Click event on spacer lock
+        let spacerLocks = document.querySelectorAll( '.spacer-lock' );
+
+        spacerLocks.forEach( ( lock ) => {
+
+            if( lock.classList.contains( 'lock-active' ) ) {
+                return;
+            }
+
+            lock.classList.add( 'lock-active' );
+            
+            lock.addEventListener( 'mousedown', function() {
+
+                let currentState = lock.querySelector( '.icon' ).classList;
+
+                if ( currentState.contains( 'unlock' ) ) {
+                    // adding lock class
+                    lock.closest( '.spacer' ).classList.add( 'spacer-locked' );
+                    // Updating icon property
+                    currentState.remove( 'unlock' );
+                    currentState.add( 'lock' );
+                } else {
+                    // adding lock class
+                    lock.closest( '.spacer' ).classList.remove( 'spacer-locked' );
+                    // Updating icon property
+                    currentState.remove( 'lock' );
+                    currentState.add( 'unlock' );
+                }
+
+            });
+        });
 
     });
 

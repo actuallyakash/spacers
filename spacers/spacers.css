@@ -89,11 +89,13 @@
     background: transparent;
 }
 
-.spacer-wrapper.on-hover .spacer[data-type=padding]:hover {
+.spacer-wrapper.on-hover .spacer[data-type=padding]:hover,
+.spacer[data-type=padding].spacer-active {
     background: var(--padding-bg);
 }
 
-.spacer-wrapper.on-hover .spacer[data-type=margin]:hover {
+.spacer-wrapper.on-hover .spacer[data-type=margin]:hover,
+.spacer[data-type=margin].spacer-active {
     background: var(--margin-bg);
 }
 

@@ -1,7 +1,7 @@
 ## TODO: options needed
 
-* enableLock: (to link opposite spacers)
-    default - <span class="lock"></span>, <span class="unlock"></span>
+* lockIcon
+* unlockIcon
 
 ## Done
 
@@ -19,3 +19,5 @@
 * showOnHover (to show spacers only on hover) | type: boolean
 * showSpacingValue (to show the margin/padding number in the center of spacer) | type: boolean
 * showLabel: (to show the label beside spacing value) | type: string
+* enableLock: (to link opposite spacers)
+    default - <span class="lock"></span>, <span class="unlock"></span>
