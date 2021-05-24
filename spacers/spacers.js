@@ -49,9 +49,9 @@ function spacers( options ) {
         element.style.position = "relative";
 
         let spacerSize, spacerDivs = '';
-        let lockIcon = '<span class="lock icon"></span>';
-        let unlockIcon = '<span class="unlock icon"></span>';
-        let spacerLock = options.enableLock ? '<span class="spacer-lock">' + unlockIcon + '</span>' : '';
+        let lockIcon = options.lockIcon ? options.lockIcon : '<span class="icon"></span>';
+        let unlockIcon = options.unlockIcon ? options.unlockIcon : '<span class="icon"></span>';
+        let spacerLock = options.enableLock ? '<span class="spacer-lock unlocked">' + unlockIcon + '</span>' : '';
 
         spacingProperties.forEach( property => {
             switch( property ) {
@@ -242,6 +242,13 @@ function spacers( options ) {
             element.style[oppositeProperty] = spacerValue;
         }
 
+        function stringToHtml( html ) {
+            let temp = document.createElement( 'template' );
+            html = html.trim(); // Never return a space text node as a result
+            temp.innerHTML = html;
+            return temp.content.firstChild;
+        }
+
         // Click event on spacer lock
         let spacerLocks = document.querySelectorAll( '.spacer-lock' );
 
@@ -250,27 +257,31 @@ function spacers( options ) {
             if( lock.classList.contains( 'lock-active' ) ) {
                 return;
             }
-
+        
             lock.classList.add( 'lock-active' );
             
             lock.addEventListener( 'mousedown', function() {
-
-                let currentState = lock.querySelector( '.icon' ).classList;
-
-                if ( currentState.contains( 'unlock' ) ) {
+        
+                let currentState = lock.classList;
+                
+                if ( currentState.contains( 'unlocked' ) ) {
                     // adding lock class
                     lock.closest( '.spacer' ).classList.add( 'spacer-locked' );
+                    // swapping lock icon
+                    lock.replaceChild( stringToHtml( lockIcon ), lock.childNodes[0] );
                     // Updating icon property
-                    currentState.remove( 'unlock' );
-                    currentState.add( 'lock' );
+                    currentState.remove( 'unlocked' );
+                    currentState.add( 'locked' );
                 } else {
                     // adding lock class
                     lock.closest( '.spacer' ).classList.remove( 'spacer-locked' );
+                    // swapping lock icon
+                    lock.replaceChild( stringToHtml( unlockIcon ), lock.childNodes[0] );
                     // Updating icon property
-                    currentState.remove( 'lock' );
-                    currentState.add( 'unlock' );
+                    currentState.remove( 'locked' );
+                    currentState.add( 'unlocked' );
                 }
-
+        
             });
         });
 

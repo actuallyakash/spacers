@@ -131,6 +131,7 @@
     cursor: pointer;
     font-size: 17px;
     vertical-align: middle;
+    background-repeat: no-repeat;
 }
 
 /* Lock/unlock icon */
@@ -138,13 +139,13 @@
     width: 17px;
     height: 17px;
     display: inline-block;
-    margin-left: 5px;
+    margin-left: 3px;
 }
 
-.spacer-lock .lock {
+.spacer-lock.locked .icon {
     background-image: url('../assets/images/padlock-lock.svg');
 }
 
-.spacer-lock .unlock {
+.spacer-lock.unlocked .icon {
     background-image: url('../assets/images/padlock-unlock.svg');
 }
