@@ -14,7 +14,7 @@ function spacers( options ) {
     enablePadding ? spacingProperties.push( 'padding' ) : '';
     let spacingDimensions = [ 'top', 'right', 'bottom', 'left' ];
     let showSpacingValue = options.showSpacingValue == undefined || options.showSpacingValue == true ? true : false;
-    let showLabel = options.showLabel ? options.showLabel : false;
+    let showLabel = options.showLabel ? options.showLabel : '';
 
     margin = {
         top: options.defaultMargin ? options.defaultMargin.top : '',

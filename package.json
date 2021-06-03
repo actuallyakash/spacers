@@ -1,0 +1,25 @@
+{
+  "name": "spacersjs",
+  "version": "1.0.0",
+  "description": "when you need more space",
+  "main": "spacers/spacers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/actuallyakash/spacers.git"
+  },
+  "keywords": [
+    "spacers",
+    "margin",
+    "padding",
+    "dragging"
+  ],
+  "author": "actuallyakash",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/actuallyakash/spacers/issues"
+  },
+  "homepage": "https://github.com/actuallyakash/spacers#readme"
+}
