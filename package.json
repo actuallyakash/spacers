@@ -1,11 +1,8 @@
 {
   "name": "spacersjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "when you need more space",
   "main": "spacers/spacers.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/actuallyakash/spacers.git"
@@ -21,5 +18,5 @@
   "bugs": {
     "url": "https://github.com/actuallyakash/spacers/issues"
   },
-  "homepage": "https://github.com/actuallyakash/spacers#readme"
+  "homepage": "http://actuallyakash.github.io/spacers/"
 }

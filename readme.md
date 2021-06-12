@@ -23,23 +23,23 @@ npm install spacersjs
 
 **Option**|**Type**|**Default**|**Description**
 -----|-----|-----|-----
-element|string|null|Selector on which the spacer have to be initialized
+element|string|null|Selector on which the spacer has to be initialized
 appendHtml|string|begin|To append spacer divs after or before the tag. Use `begin` to append in the beginning and `end` to append after the selector.
-padding|boolean|true|To enable padding, which is default behaviour
+padding|boolean|true|To enable padding, which is default behavior
 margin|boolean|false|To enable margin
 onDragEnd|boolean|null|Function for using the spacer values when drag is ended
-containedArea|object (DOM node | jQuery object)|window.document|Use if you're not able to find the element (ex- when using iframe)
+containedArea|object (DOM node or jQuery object) or window.document|Use if you're not able to find the element (ex- when using iframe)
 spacerClass|object|null|For adding custom classes in the spacers
-defaultSpacing|string|null|Default margin/padding values
-defaultPadding|object|null|an object with top, bottom, left, right values
-defaultMargin|object|null|an object with top, bottom, left, right values
-spacingUnit|object|px|Change default spacing unit of spacers like em, rem, in, cm ..etc
+defaultSpacing|string|8px|Initial starting spacer height.
+defaultPadding|object|null|an object with initial padding spacer top, bottom, left, right values. Overwrites the `defaultSpacing` parameter
+defaultMargin|object|null|an object with initial margin spacer top, bottom, left, right values. Overwrites the `defaultSpacing` parameter
+spacingUnit|string|px|Change default spacing unit of spacers like em, rem, in, cm ..etc
 showOnHover|string|false|Show spacers only on hover
-showSpacingValue|boolean|false|Show the margin/padding values at the center of spacer
-showLabel|string|null|Show the label beside spacing value
+showSpacingValue|boolean|false|Show the margin/padding values at the center of the spacer
+showLabel|string|null|Show the label beside the spacing value
 enableLock|boolean|false|Link opposite spacers
-lockIcon|string|<span class="lock"></span>|HTML string for lock icon
-unlockIcon|string|<span class="unlock"></span>|HTML string for unlock icon
+lockIcon|string|```<span class="lock"></span>```|HTML string for the lock icon
+unlockIcon|string|```<span class="unlock"></span>```|HTML string for the unlock icon
 
 #### Example
 

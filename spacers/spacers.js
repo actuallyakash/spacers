@@ -151,7 +151,7 @@ function spacers( options ) {
             currentSpacer.setAttribute( 'data-size', spacingValue );
             currentSpacer.querySelector('.spacer-indicator .spacer-size').innerText = spacingValue;
 
-            spacingValue += 'px';
+            spacingValue += spacingUnit;
 
             // Checking for locked spacers
             if( currentSpacer.classList.contains('spacer-locked') ) {
