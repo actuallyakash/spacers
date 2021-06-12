@@ -116,14 +116,254 @@
             <div class="col-md-9 col-sm-12 docs mt-5 shadow-sm">
                <div class="docs-section" id="introduction">
                   <h2 class="docs-title">Introduction</h2>
-                  <p>spacers is a JS plugin that supports multiple spacers for padding/margin, linking functionality &amp; much more!</p>
+                  <p>spacers is a JS plugin that supports multiple spacers for controlling padding/margin, linking functionality &amp; much more!</p>
+                  <p>spacers make spacing as easy as a drag ↕</p>
                </div>
 
                <div class="docs-section" id="settings">
                   <h2 class="docs-title main-title">Settings</h2>
                </div>
 
+               <div class="docs-section" id="element">
+                  <h2 class="docs-title">element</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element'
+                        });
+                     </code>
+                  </pre>
+                  <p>Selector on which the spacer have to be initialized.</p>
+               </div>
+
+               <div class="docs-section" id="padding">
+                  <h2 class="docs-title">padding</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element'
+                           padding: true
+                        });
+                     </code>
+                  </pre>
+                  <p>To enable padding, which is the default behaviour.</p>
+               </div>
+
+               <div class="docs-section" id="margin">
+                  <h2 class="docs-title">margin</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           padding: false,
+                           margin: true
+                        });
+                     </code>
+                  </pre>
+                  <p>Enables margin</p>
+               </div>
                
+               <div class="docs-section" id="defaultSpacing">
+                  <h2 class="docs-title">defaultSpacing</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           defaultSpacing: '10px'
+                        });
+                     </code>
+                  </pre>
+                  <p>Sets the initial starting spacer height. Default is <code>8px</code>.</p>
+               </div>
+               
+               <div class="docs-section" id="defaultPadding">
+                  <h2 class="docs-title">defaultPadding</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           defaultPadding: {
+                              'top': '20px',
+                              'bottom': '20px',
+                              'left': '20px',
+                              'right': '20px'
+                           }
+                        });
+                     </code>
+                  </pre>
+                  <p>an object with initial padding; top, bottom, left, right values. Overwrites the <code class="language-js">defaultSpacing</code> parameter.</p>
+               </div>
+               
+               <div class="docs-section" id="defaultMargin">
+                  <h2 class="docs-title">defaultMargin</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           defaultMargin: {
+                              'top': '20px',
+                              'bottom': '20px',
+                              'left': '20px',
+                              'right': '20px'
+                           }
+                        });
+                     </code>
+                  </pre>
+                  <p>an object with initial margin; top, bottom, left, right values. Overwrites the `defaultSpacing` parameter.</p>
+               </div>
+               
+               <div class="docs-section" id="spacingUnit">
+                  <h2 class="docs-title">spacingUnit</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           spacingUnit: 'em'
+                        });
+                     </code>
+                  </pre>
+                  <p>Change default spacing unit of spacers. Examples - em, rem, in, cm, mm, pt, pc ..etc</p>
+               </div>
+               
+               <div class="docs-section" id="showOnHover">
+                  <h2 class="docs-title">showOnHover</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           showOnHover: true
+                        });
+                     </code>
+                  </pre>
+                  <p>Show spacers only on hover</p>
+               </div>
+               
+               <div class="docs-section" id="appendHtml">
+                  <h2 class="docs-title">appendHtml</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           appendHtml: 'begin'
+                        });
+                     </code>
+                  </pre>
+                  <p>To append spacer divs after or before the specified <code class="language-js">element</code>. Use <code>begin</code> to before the selector and <code>end</code> to append after the selector.</p>
+               </div>
+               
+               <div class="docs-section" id="showSpacingValue">
+                  <h2 class="docs-title">showSpacingValue</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           showSpacingValue: true
+                        });
+                     </code>
+                  </pre>
+                  <p>Show the margin/padding values at the center of the spacer</p>
+               </div>
+               
+               <div class="docs-section" id="showLabel">
+                  <h2 class="docs-title">showLabel</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           showLabel: 'Spacer Label',
+                        });
+                     </code>
+                  </pre>
+                  <p>Enable and set the label to specified string beside the spacing value</p>
+               </div>
+               
+               <div class="docs-section" id="enableLock">
+                  <h2 class="docs-title">enableLock</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           enableLock: true
+                        });
+                     </code>
+                  </pre>
+                  <p>Link opposite spacers. Helps in managing spacing of top/bottom or left/right simultaneously</p>
+               </div>
+               
+               <div class="docs-section" id="lockIcon">
+                  <h2 class="docs-title">lockIcon</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           lockIcon: '🤐'
+                        });
+                     </code>
+                  </pre>
+                  <p>HTML string for the lock icon. Works only when <code class="language-js">enableLock</code> is <code>true</code>.</p>
+               </div>
+               
+               <div class="docs-section" id="unlockIcon">
+                  <h2 class="docs-title">unlockIcon</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           unlockIcon: '😃',
+                        });
+                     </code>
+                  </pre>
+                  <p>HTML string for the unlock icon. Works only when <code class="language-js">enableLock</code> is <code>true</code>.</p>
+               </div>
+               
+               <div class="docs-section" id="containedArea">
+                  <h2 class="docs-title">containedArea</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           containedArea: $document
+                        });
+                     </code>
+                  </pre>
+                  <p>Use if you're not able to find the element (ex- when using iframe). Accepts HTML Iframe Object.</p>
+               </div>
+               
+               <div class="docs-section" id="spacerClass">
+                  <h2 class="docs-title">spacerClass</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           spacerClass: 'some-dope-class another-dope-class'
+                        });
+                     </code>
+                  </pre>
+                  <p>For adding custom classes in the spacers</p>
+               </div>
+               
+               <div class="docs-section" id="onDragEnd">
+                  <h2 class="docs-title">onDragEnd</h2>
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.inner-element',
+                           onDragEnd: function( data ) {
+                              // do some magic with this data here.
+                              console.log(data);
+                           }
+                        });
+                     </code>
+                  </pre>
+                  <p>Function for using the spacer values when drag is ended. Return object.</p>
+               </div>              
+
+               <div class="docs-section" id="more-options">
+                  <h2 class="docs-title">More</h2>
+                  <p>More options coming soon.</p>
+                  <pre><code><a href="https://github.com/actuallyakash/spacers">https://github.com/actuallyakash/spacers</a></code></pre>
+                  <pre>by <code><a href="https://github.com/actuallyakash">@actuallyakash</a></code></pre>
+               </div>
             </div>
 
          </div>

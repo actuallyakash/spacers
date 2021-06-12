@@ -24,7 +24,7 @@ npm install spacersjs
 **Option**|**Type**|**Default**|**Description**
 -----|-----|-----|-----
 element|string|null|Selector on which the spacer has to be initialized
-appendHtml|string|begin|To append spacer divs after or before the tag. Use `begin` to append in the beginning and `end` to append after the selector.
+appendHtml|string|begin|To append spacer divs after or before the specified `element`. Use `begin` to append before the selector and `end` to append after the selector.
 padding|boolean|true|To enable padding, which is default behavior
 margin|boolean|false|To enable margin
 onDragEnd|boolean|null|Function for using the spacer values when drag is ended
@@ -36,7 +36,7 @@ defaultMargin|object|null|an object with initial margin spacer top, bottom, left
 spacingUnit|string|px|Change default spacing unit of spacers like em, rem, in, cm ..etc
 showOnHover|string|false|Show spacers only on hover
 showSpacingValue|boolean|false|Show the margin/padding values at the center of the spacer
-showLabel|string|null|Show the label beside the spacing value
+showLabel|string|null|Enable and set the label to specified string beside the spacing value
 enableLock|boolean|false|Link opposite spacers
 lockIcon|string|```<span class="lock"></span>```|HTML string for the lock icon
 unlockIcon|string|```<span class="unlock"></span>```|HTML string for the unlock icon
