@@ -1,0 +1,71 @@
+.banner-text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.banner-text h2 {
+    line-height: 1;
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.spacers-banner {
+    padding: 10px 30px;
+    border-bottom: 5px solid;
+    border-bottom-color: #5e5e5e;
+    background-color: #f4f7fc;
+    color: black;
+}
+
+.banner-image {
+    margin: 15px 0;
+    user-select: none;
+}
+
+.docs {
+    padding: 0 50px;
+}
+
+.docs-links {
+    background: #F4F6FA;
+    padding: 20px;
+    padding: 0 40px;
+    position: sticky;
+}
+
+.docs-links .nav-pills a {
+    color: black;
+}
+
+.docs-links .nav-pills {
+    top: 20px;
+    position: sticky;
+}
+
+.docs .docs-section {
+    margin-bottom: 90px;
+}
+
+.docs .docs-section .docs-title {
+    padding: 0px 0 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    color: #384248;
+    font-size: 30px;
+}
+
+.docs .docs-section .main-title {
+    text-align: center;
+    font-size: 35px;
+}
+
+.docs-links .nav-pills .nav-link.active,
+.docs-links .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #5e5e5e;
+}
+
+.documentation .row {
+    margin: 0;
+}
