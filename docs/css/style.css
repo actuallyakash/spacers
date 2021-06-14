@@ -69,3 +69,9 @@
 .documentation .row {
     margin: 0;
 }
+
+.element-block {
+    padding: .75rem;
+    background-color: #f7f7f7;
+    border: 1px solid rgba(86, 61, 124, .2);
+}
