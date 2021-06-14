@@ -95,7 +95,7 @@ function spacers( options ) {
 
             // Addding custom-defined classes
             if ( options.spacerClass ) {
-                spacer.classList.add( options.spacerClass );
+                spacer.classList.add( ...options.spacerClass.split(' ') );
             }
 
             // Adding default spacing
