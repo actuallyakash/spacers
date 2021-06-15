@@ -22,10 +22,10 @@ spacers({
 spacers({
     element: '.defaultPadding-prop',
     defaultPadding: {
-        'top': '20px',
-        'bottom': '20px',
-        'left': '20px',
-        'right': '20px'
+        'top': '20',
+        'bottom': '20',
+        'left': '20',
+        'right': '20'
     }
 });
 
@@ -34,10 +34,10 @@ spacers({
     padding: false,
     margin: true,
     defaultMargin: {
-        'top': '20px',
-        'bottom': '20px',
-        'left': '20px',
-        'right': '20px'
+        'top': '20',
+        'bottom': '20',
+        'left': '20',
+        'right': '20'
     }
 });
 

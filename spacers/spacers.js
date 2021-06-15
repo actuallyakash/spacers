@@ -2,7 +2,7 @@ function spacers( options ) {
 
     let document = options.containedArea ? options.containedArea : window.document;
     let elements = document.querySelectorAll( options.element );
-    let defaultSpacing = options.defaultSpacing ? options.defaultSpacing : '8px';
+    let defaultSpacing = options.defaultSpacing ? options.defaultSpacing : '8';
     let spacingUnit = options.spacingUnit ? options.spacingUnit : "px";
     let enablePadding = options.padding == undefined || options.padding == true ? true : false;
     let showOnHover = options.showOnHover ? ' on-hover' : '';
@@ -58,7 +58,7 @@ function spacers( options ) {
                 case 'padding':
                     spacingDimensions.forEach( dim => {
 
-                        spacerSize = ( padding[dim] == "0" ? defaultSpacing : padding[dim] );
+                        spacerSize = ( padding[dim] == "" ? defaultSpacing : padding[dim] );
 
                         spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( showSpacingValue ? '' : 'display-none ' ) +'spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span>'+ showLabel + spacerLock + '</span> </div>';
 
@@ -89,9 +89,7 @@ function spacers( options ) {
         spacers.forEach(spacer => {
             
             // Adding default spacing
-            if( !options.defaultPadding || !options.defaultMargin ) {
-                document.documentElement.style.setProperty( '--spacer-size', defaultSpacing + spacingUnit );
-            }
+            document.documentElement.style.setProperty( '--spacer-size', defaultSpacing + spacingUnit );
 
             // Addding custom-defined classes
             if ( options.spacerClass ) {
@@ -99,7 +97,7 @@ function spacers( options ) {
             }
 
             // Adding default spacing
-            spacerValue = spacer.getAttribute('data-size') ? spacer.getAttribute('data-size') : defaultSpacing;
+            spacerValue = ( spacer.getAttribute('data-size') ? spacer.getAttribute('data-size') : defaultSpacing ) + spacingUnit;
             spacerPosition = spacer.getAttribute('data-position');
 
             if( spacerPosition == "top" || spacerPosition == "bottom" ) {
