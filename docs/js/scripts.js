@@ -16,7 +16,7 @@ spacers({
 
 spacers({
     element: '.defaultSpacing-prop',
-    defaultSpacing: '10px'
+    defaultSpacing: '10'
 });
 
 spacers({

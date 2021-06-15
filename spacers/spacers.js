@@ -90,7 +90,7 @@ function spacers( options ) {
             
             // Adding default spacing
             if( !options.defaultPadding || !options.defaultMargin ) {
-                document.documentElement.style.setProperty( '--spacer-val', defaultSpacing );
+                document.documentElement.style.setProperty( '--spacer-size', defaultSpacing + spacingUnit );
             }
 
             // Addding custom-defined classes
