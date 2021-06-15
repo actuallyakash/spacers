@@ -35,7 +35,7 @@ defaultPadding|object|null|an object with initial padding spacer top, bottom, le
 defaultMargin|object|null|an object with initial margin spacer top, bottom, left, right values. Overwrites the `defaultSpacing` parameter
 spacingUnit|string|px|Change default spacing unit of spacers like em, rem, in, cm ..etc
 showOnHover|string|false|Show spacers only on hover
-showSpacingValue|boolean|false|Show the margin/padding values at the center of the spacer
+hideSpacingValue|boolean|false|Hides the margin/padding values at the center of the spacer
 showLabel|string|null|Enable and set the label to specified string beside the spacing value
 enableLock|boolean|false|Link opposite spacers
 lockIcon|string|```<span class="lock"></span>```|HTML string for the lock icon

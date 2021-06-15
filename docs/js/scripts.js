@@ -58,8 +58,8 @@ spacers({
 });
 
 spacers({
-    element: '.showSpacingValue-prop',
-    showSpacingValue: false
+    element: '.hideSpacingValue-prop',
+    hideSpacingValue: true
 });
 
 spacers({
