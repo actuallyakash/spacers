@@ -144,9 +144,9 @@
 }
 
 .spacer-lock.locked .icon {
-    background-image: url('../assets/images/padlock-lock.svg');
+    background-image: url('icons/padlock-lock.svg');
 }
 
 .spacer-lock.unlocked .icon {
-    background-image: url('../assets/images/padlock-unlock.svg');
+    background-image: url('icons/padlock-unlock.svg');
 }
