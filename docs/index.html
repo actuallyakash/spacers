@@ -81,49 +81,52 @@
                         <a class="nav-link" href="#element">element</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#padding">padding</a>
+                        <a class="nav-link" href="#padding">padding</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#margin">margin</a>
+                        <a class="nav-link" href="#margin">margin</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#defaultSpacing">defaultSpacing</a>
+                        <a class="nav-link" href="#padding-margin">padding / Margin</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#defaultPadding">defaultPadding</a>
+                        <a class="nav-link" href="#defaultSpacing">defaultSpacing</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#defaultMargin">defaultMargin</a>
+                        <a class="nav-link" href="#defaultPadding">defaultPadding</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#spacingUnit">spacingUnit</a>
+                        <a class="nav-link" href="#defaultMargin">defaultMargin</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#showOnHover">showOnHover</a>
+                        <a class="nav-link" href="#spacingUnit">spacingUnit</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#appendHtml">appendHtml</a>
+                        <a class="nav-link" href="#showOnHover">showOnHover</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#hideSpacingValue">hideSpacingValue</a>
+                        <a class="nav-link" href="#appendHtml">appendHtml</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#showLabel">showLabel</a>
+                        <a class="nav-link" href="#hideSpacingValue">hideSpacingValue</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#enableLock">enableLock</a>
+                        <a class="nav-link" href="#showLabel">showLabel</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#lockIcon">lockIcon / unlockIcon</a>
+                        <a class="nav-link" href="#enableLock">enableLock</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#containedArea">containedArea</a>
+                        <a class="nav-link" href="#lockIcon">lockIcon / unlockIcon</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#spacerClass">spacerClass</a>
+                        <a class="nav-link" href="#containedArea">containedArea</a>
                      </li>
                      <li class="nav-item">
-                           <a class="nav-link" href="#onDragEnd">onDragEnd</a>
+                        <a class="nav-link" href="#spacerClass">spacerClass</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#onDragEnd">onDragEnd</a>
                      </li>
                   </ul>
                   <li class="nav-item">
@@ -265,6 +268,47 @@
                      </code>
                   </pre>
                   <p>Enables margin</p>
+               </div>
+
+               <div class="docs-section" id="padding-margin">
+                  <h2 class="docs-title">padding / margin</h2>
+
+                  <div class="row mb-3">
+                     <div class="element col-6 col-md-4">
+                        <div class="element-block padding-margin-prop">
+                           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, eveniet laudantium, sit soluta ipsum
+                           reprehenderit libero eaque ex, unde nesciunt blanditiis itaque nemo exercitationem voluptates modi
+                           et cumque quas. Aliquid.
+                        </div>
+                     </div>
+         
+                     <div class="element col-6 col-md-4">
+                        <div class="element-block margin-prop">
+                           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, eveniet laudantium, sit soluta ipsum
+                           reprehenderit libero eaque ex, unde nesciunt blanditiis itaque nemo exercitationem voluptates modi
+                           et cumque quas. Aliquid.
+                        </div>
+                     </div>
+         
+                     <div class="element col-6 col-md-4">
+                        <div class="element-block margin-prop">
+                           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, eveniet laudantium, sit soluta ipsum
+                           reprehenderit libero eaque ex, unde nesciunt blanditiis itaque nemo exercitationem voluptates modi
+                           et cumque quas. Aliquid.
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <pre>
+                     <code class="language-js">
+                        spacers({
+                           element: '.padding-margin-prop',
+                           padding: true,
+                           margin: true
+                        });
+                     </code>
+                  </pre>
+                  <p>Enables both padding & margin simultaneously.</p>
                </div>
                
                <div class="docs-section" id="defaultSpacing">
