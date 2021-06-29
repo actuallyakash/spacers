@@ -76,6 +76,41 @@
     border: 1px solid rgba(86, 61, 124, .2);
 }
 
+.docs-btn {
+    background-color: #111827;
+    border-color: black;
+    transition: 0.5s opacity;
+    padding: 20px;
+}
+
+.docs-btn:hover {
+    background-color: #111827;
+    opacity: 0.9;
+}
+
+.cta-btn {
+    padding: 12px;
+    background: #111827;
+    border: black;
+    color: white;
+}
+
+.cta-btn:hover {
+    background-color: #111827;
+    opacity: 0.9;
+    color: white;
+}
+
+.download-btn {
+    background: #C8CCD1;
+    color: black;
+}
+
+.download-btn:hover{
+    background: #C8CCD1;
+    color: black;
+}
+
 .some-dope-class {
     background: #21f749 !important;
 }
