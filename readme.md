@@ -5,6 +5,8 @@ spacers
 
 _when you need more space_
 
+<img src="https://res.cloudinary.com/dmz9bftyk/image/upload/v1625301678/spacers_giwb8b.gif">
+
 #### Demo
 
 [http://actuallyakash.github.io/spacers](http://actuallyakash.github.io/spacers/)
