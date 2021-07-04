@@ -102,13 +102,15 @@
 }
 
 .download-btn {
-    background: #C8CCD1;
+    background: white;
     color: black;
+    border: 2px solid black;
 }
 
-.download-btn:hover{
-    background: #C8CCD1;
+.download-btn:hover {
+    opacity: 0.8;
     color: black;
+    background: white;
 }
 
 .some-dope-class {

@@ -18,7 +18,7 @@ spacers({
     element: '.padding-margin-prop',
     padding: true,
     margin: true
- });
+});
 
 spacers({
     element: '.defaultSpacing-prop',
