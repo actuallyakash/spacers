@@ -49,7 +49,7 @@ Initialize with:
 
 ```javascript
 spacers({
-    element: '.inner-element'
+    element: '.element-unique-class'
 });
  ```
 
@@ -59,5 +59,5 @@ Voila! It works without any dependencies.
 
 #### License
 
-Copyright (c) 2021 Akash Gupta
+Copyright (c) 2021 Akash
 Licensed under the MIT license.
