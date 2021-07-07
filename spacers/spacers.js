@@ -1,3 +1,13 @@
+/*
+(っ◔◡◔)っ ♥ 𝒔𝒑𝒂𝒄𝒆𝒓𝒔.𝒋𝒔 ♥
+
+ Version: 1.0.3
+  Author: Akash Gupta
+ Website: http://akashgupta.xyz
+    Docs: https://actuallyakash.github.io/spacers
+    Repo: https://github.com/actuallyakash/spacers
+  Issues: https://github.com/actuallyakash/spacers/issues
+ */
 function spacers( options ) {
 
     let document = options.containedArea ? options.containedArea : window.document;
