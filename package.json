@@ -1,6 +1,6 @@
 {
   "name": "spacersjs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "when you need more space",
   "main": "spacers/spacers.js",
   "repository": {
