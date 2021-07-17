@@ -1,6 +1,6 @@
 // Element property
 spacers({
-    element: '.element-prop',
+    element: '.element-prop'
 });
 
 spacers({
@@ -70,7 +70,7 @@ spacers({
 
 spacers({
     element: '.showLabel-prop',
-    showLabel: 'Spacer Label',
+    showLabel: 'Spacer Label'
 });
 
 spacers({
