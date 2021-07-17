@@ -152,6 +152,11 @@ function spacers( options ) {
                 spacingValue = ( dragSide == 'left' ? (startWidth - e.clientX + startX) : (startWidth + e.clientX - startX) );
             }
 
+            // No negatives for now
+            if( spacingValue < 0 ) {
+                spacingValue = 0;
+            }
+
             // Setting Margin/Padding value
             setPropertyValue( spacerType, position, spacingValue );
 
@@ -169,10 +174,10 @@ function spacers( options ) {
             // Applying padding/margin
             oppositeProperty = spacerType + position.charAt(0).toUpperCase() + position.substring(1);
             if ( position == 'top' || position == 'bottom' ) {
-                currentSpacer.style.height = spacingValue;
+                currentSpacer.style.height = spacingValue == 0 + spacingUnit ? ( defaultSpacing + spacingUnit ) : spacingValue;
                 element.style[oppositeProperty] = spacingValue;
             } else {
-                currentSpacer.style.width = spacingValue;
+                currentSpacer.style.width = spacingValue == 0 + spacingUnit ? ( defaultSpacing + spacingUnit ) : spacingValue;
                 element.style[oppositeProperty] = spacingValue;
             }
         }

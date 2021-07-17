@@ -67,7 +67,7 @@
       <div id="documentation" class="documentation">
          <div class="row">
 
-            <nav class="col-md-2 d-none d-md-block d-lg-block col-sm-none docs-links" id="myScrollspy">
+            <nav class="d-none d-lg-block col-lg-2 docs-links" id="myScrollspy">
                <ul class="nav nav-pills flex-column mt-5">
                   <li class="nav-item">
                      <a class="nav-link active" href="#introduction">Introduction</a>
@@ -141,7 +141,7 @@
                </ul>
             </nav>
 
-            <div class="col-md-10 col-sm-12 docs mt-5 shadow-sm">
+            <div class="col-lg-10 col-md-12 col-sm-12 docs mt-5 shadow-sm">
                <div class="docs-section" id="introduction">
                   <h2 class="docs-title">Introduction</h2>
                   
@@ -184,9 +184,9 @@
 
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.element-prop'
-                        });
+   spacers({
+      element: '.element-prop'
+   });
                      </code>
                   </pre>
                   <p>Selector on which the spacer have to be initialized.</p>
@@ -223,10 +223,10 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.padding-prop',
-                           padding: true
-                        });
+   spacers({
+      element: '.padding-prop',
+      padding: true
+   });
                      </code>
                   </pre>
                   <p>To enable padding, which is the default behaviour.</p>
@@ -263,11 +263,11 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.margin-prop',
-                           padding: false,
-                           margin: true
-                        });
+   spacers({
+      element: '.margin-prop',
+      padding: false,
+      margin: true
+   });
                      </code>
                   </pre>
                   <p>Enables margin</p>
@@ -304,11 +304,11 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.padding-margin-prop',
-                           padding: true,
-                           margin: true
-                        });
+   spacers({
+      element: '.padding-margin-prop',
+      padding: true,
+      margin: true
+   });
                      </code>
                   </pre>
                   <p>Enables both padding & margin simultaneously.</p>
@@ -345,10 +345,10 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.defaultSpacing-prop',
-                           defaultSpacing: '10px'
-                        });
+   spacers({
+      element: '.defaultSpacing-prop',
+      defaultSpacing: '10px'
+   });
                      </code>
                   </pre>
                   <p>Sets the initial starting spacer height. Default is <code>8px</code>.</p>
@@ -385,15 +385,15 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.defaultPadding-prop',
-                           defaultPadding: {
-                              'top': '20',
-                              'bottom': '20',
-                              'left': '20',
-                              'right': '20'
-                           }
-                        });
+   spacers({
+      element: '.defaultPadding-prop',
+      defaultPadding: {
+         'top': '20',
+         'bottom': '20',
+         'left': '20',
+         'right': '20'
+      }
+   });
                      </code>
                   </pre>
                   <p>an object with initial padding; top, bottom, left, right values. Overwrites the <code class="language-js">defaultSpacing</code> parameter.</p>
@@ -430,17 +430,17 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.defaultMargin-prop',
-                           padding: false,
-                           margin: true,
-                           defaultMargin: {
-                              'top': '10',
-                              'bottom': '10',
-                              'left': '10',
-                              'right': '10'
-                           }
-                        });
+   spacers({
+      element: '.defaultMargin-prop',
+      padding: false,
+      margin: true,
+      defaultMargin: {
+         'top': '10',
+         'bottom': '10',
+         'left': '10',
+         'right': '10'
+      }
+   });
                      </code>
                   </pre>
                   <p>an object with initial margin; top, bottom, left, right values. Overwrites the `defaultSpacing` parameter.</p>
@@ -477,10 +477,10 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.spacingUnit-prop',
-                           spacingUnit: 'mm'
-                        });
+   spacers({
+      element: '.spacingUnit-prop',
+      spacingUnit: 'mm'
+   });
                      </code>
                   </pre>
                   <p>Change default spacing unit of spacers. Examples - em, rem, in, cm, ch, mm, pt, pc ..etc</p>
@@ -517,11 +517,11 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.showOnHover-prop',
-                           margin: true,
-                           showOnHover: true
-                        });
+   spacers({
+      element: '.showOnHover-prop',
+      margin: true,
+      showOnHover: true
+   });
                      </code>
                   </pre>
                   <p>Show spacers only on hover</p>
@@ -558,10 +558,10 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.appendHtml-prop',
-                           appendHtml: 'begin'
-                        });
+   spacers({
+      element: '.appendHtml-prop',
+      appendHtml: 'begin'
+   });
                      </code>
                   </pre>
                   <p>To append spacer divs after or before the specified <code class="language-js">element</code>. Use <code>begin</code> to before the selector and <code>end</code> to append after the selector.</p> Check in the developer tools.
@@ -598,10 +598,10 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.hideSpacingValue-prop',
-                           hideSpacingValue: true
-                        });
+   spacers({
+      element: '.hideSpacingValue-prop',
+      hideSpacingValue: true
+   });
                      </code>
                   </pre>
                   <p>Hides the margin/padding values at the center of the spacer</p>
@@ -638,10 +638,10 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.showLabel-prop',
-                           showLabel: 'Spacer Label',
-                        });
+   spacers({
+      element: '.showLabel-prop',
+      showLabel: 'Spacer Label',
+   });
                      </code>
                   </pre>
                   <p>Enable and set the label to specified string beside the spacing value</p>
@@ -678,10 +678,10 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.enableLock-prop',
-                           enableLock: true
-                        });
+   spacers({
+      element: '.enableLock-prop',
+      enableLock: true
+   });
                      </code>
                   </pre>
                   <p>Link opposite spacers. Helps in managing spacing of top/bottom or left/right simultaneously</p>
@@ -718,12 +718,12 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.lockIcon-prop',
-                           enableLock: true,
-                           lockIcon: '🤐'
-                           unlockIcon: '😃'
-                        });
+   spacers({
+      element: '.lockIcon-prop',
+      enableLock: true,
+      lockIcon: '🤐'
+      unlockIcon: '😃'
+   });
                      </code>
                   </pre>
                   <p>HTML string for the lock icon. Works only when <code class="language-js">enableLock</code> is <code>true</code>.</p>
@@ -760,10 +760,10 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.containedArea-prop',
-                           containedArea: document
-                        });
+   spacers({
+      element: '.containedArea-prop',
+      containedArea: document
+   });
                      </code>
                   </pre>
                   <p>Use if you're not able to find the element (ex- when using iframe). Accepts HTML Iframe Object.</p>
@@ -800,17 +800,17 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.spacerClass-prop',
-                           spacerClass: 'some-dope-class another-dope-class'
-                        });
+   spacers({
+      element: '.spacerClass-prop',
+      spacerClass: 'some-dope-class another-dope-class'
+   });
                      </code>
                   </pre>
                   <pre>
                      <code class="language-css">
-                        .some-dope-class {
-                           background: #21f749;
-                        }
+   .some-dope-class {
+      background: #21f749;
+   }
                      </code>
                   </pre>
                   <p>For adding custom classes in the spacers</p>
@@ -847,13 +847,13 @@
                   
                   <pre>
                      <code class="language-js">
-                        spacers({
-                           element: '.onDragEnd-prop',
-                           onDragEnd: function( data ) {
-                              // do some magic with this data here.
-                              console.log(data);
-                           }
-                        });
+   spacers({
+      element: '.onDragEnd-prop',
+      onDragEnd: function( data ) {
+         // do some magic with this data here.
+         console.log(data);
+      }
+   });
                      </code>
                   </pre>
                   <p>Function for using the spacer values when drag is ended. Returns object. (Check console)</p>
