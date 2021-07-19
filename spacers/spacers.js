@@ -78,7 +78,7 @@ function spacers( options ) {
                 case 'margin':
                     spacingDimensions.forEach( dim => {
 
-                        spacerSize = ( margin[dim] == "0" ? defaultSpacing : margin[dim] );
+                        spacerSize = ( margin[dim] == "" ? defaultSpacing : margin[dim] );
 
                         spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( hideSpacingValue ? 'display-none ' : '' ) +'spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span>'+ showLabel + spacerLock + '</span> </div>';
 
