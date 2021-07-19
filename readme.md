@@ -21,6 +21,14 @@ bower install --save spacersjs
 npm install spacersjs
 ```
 
+#### CDNs
+
+```html
+# unpkg
+<link rel="stylesheet" href="https://unpkg.com/spacersjs/spacers/spacers.min.css">
+<script src="https://unpkg.com/spacersjs/spacers/spacers.min.js"></script>
+```
+
 ### Settings
 
 **Option**|**Type**|**Default**|**Description**
