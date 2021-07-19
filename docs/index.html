@@ -152,14 +152,18 @@
                </div>
 
                <div class="docs-section" id="cdns">
-                  <h2 class="docs-title">CDN</h2>
+                  <h2 class="docs-title">CDNs</h2>
                   <pre>
                      <code class="language-html">
    # unpkg
    &lt;link rel="stylesheet" href="https://unpkg.com/spacersjs/spacers/spacers.min.css"&gt;
    &lt;script src="https://unpkg.com/spacersjs/spacers/spacers.min.js">&lt;/script&gt;
+
+   # jsDelivr
+   &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.css"&gt;
+   &lt;script src="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.js">&lt;/script&gt;
                      </code>
-                  </pre>
+</pre>
                   <p>Quickly fire up the spacers with the CDN.</p>
                </div>
 
@@ -202,7 +206,7 @@
       element: '.element-prop'
    });
                      </code>
-                  </pre>
+</pre>
                   <p>Selector on which the spacer have to be initialized.</p>
                </div>
 
@@ -242,7 +246,7 @@
       padding: true
    });
                      </code>
-                  </pre>
+</pre>
                   <p>To enable padding, which is the default behaviour.</p>
                </div>
 
@@ -283,7 +287,7 @@
       margin: true
    });
                      </code>
-                  </pre>
+</pre>
                   <p>Enables margin</p>
                </div>
 
@@ -324,7 +328,7 @@
       margin: true
    });
                      </code>
-                  </pre>
+</pre>
                   <p>Enables both padding & margin simultaneously.</p>
                </div>
                
@@ -364,7 +368,7 @@
       defaultSpacing: '10'
    });
                      </code>
-                  </pre>
+</pre>
                   <p>Sets the initial starting spacer height. Default is <code>8px</code>.</p>
                </div>
                
@@ -409,7 +413,7 @@
       }
    });
                      </code>
-                  </pre>
+</pre>
                   <p>an object with initial padding; top, bottom, left, right values. Overwrites the <code class="language-js">defaultSpacing</code> parameter.</p>
                </div>
                
@@ -456,7 +460,7 @@
       }
    });
                      </code>
-                  </pre>
+</pre>
                   <p>an object with initial margin; top, bottom, left, right values. Overwrites the `defaultSpacing` parameter.</p>
                </div>
                
@@ -496,7 +500,7 @@
       spacingUnit: 'mm'
    });
                      </code>
-                  </pre>
+</pre>
                   <p>Change default spacing unit of spacers. Examples - em, rem, in, cm, ch, mm, pt, pc ..etc</p>
                </div>
                
@@ -537,7 +541,7 @@
       showOnHover: true
    });
                      </code>
-                  </pre>
+</pre>
                   <p>Show spacers only on hover</p>
                </div>
                
@@ -577,7 +581,7 @@
       appendHtml: 'begin'
    });
                      </code>
-                  </pre>
+</pre>
                   <p>To append spacer divs after or before the specified <code class="language-js">element</code>. Use <code>begin</code> to before the selector and <code>end</code> to append after the selector.</p> Check in the developer tools.
                </div>
                
@@ -617,7 +621,7 @@
       hideSpacingValue: true
    });
                      </code>
-                  </pre>
+</pre>
                   <p>Hides the margin/padding values at the center of the spacer</p>
                </div>
                
@@ -657,7 +661,7 @@
       showLabel: 'Spacer Label',
    });
                      </code>
-                  </pre>
+</pre>
                   <p>Enable and set the label to specified string beside the spacing value</p>
                </div>
                
@@ -697,7 +701,7 @@
       enableLock: true
    });
                      </code>
-                  </pre>
+</pre>
                   <p>Link opposite spacers. Helps in managing spacing of top/bottom or left/right simultaneously</p>
                </div>
                
@@ -739,7 +743,7 @@
       unlockIcon: '😃'
    });
                      </code>
-                  </pre>
+</pre>
                   <p>HTML string for the lock icon. Works only when <code class="language-js">enableLock</code> is <code>true</code>.</p>
                </div>
                
@@ -779,7 +783,7 @@
       containedArea: document
    });
                      </code>
-                  </pre>
+</pre>
                   <p>Use if you're not able to find the element (ex- when using iframe). Accepts HTML Iframe Object.</p>
                </div>
                
@@ -819,14 +823,14 @@
       spacerClass: 'some-dope-class another-dope-class'
    });
                      </code>
-                  </pre>
+</pre>
                   <pre>
                      <code class="language-css">
    .some-dope-class {
       background: #21f749;
    }
                      </code>
-                  </pre>
+</pre>
                   <p>For adding custom classes in the spacers</p>
                </div>
                
@@ -869,7 +873,7 @@
       }
    });
                      </code>
-                  </pre>
+</pre>
                   <p>Function for using the spacer values when drag is ended. Returns object. (Check console)</p>
                </div>
 
