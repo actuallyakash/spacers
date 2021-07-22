@@ -1,7 +1,7 @@
 {
   "name": "spacersjs",
-  "version": "1.0.4",
-  "description": "when you need more space",
+  "version": "1.0.5",
+  "description": "spacers is a JS library that supports multiple spacers for controlling padding/margin, linking functionality & much more!",
   "main": "spacers/spacers.min.js",
   "repository": {
     "type": "git",
@@ -11,7 +11,10 @@
     "spacers",
     "margin",
     "padding",
-    "dragging"
+    "dragging",
+    "no-code",
+    "spacing",
+    "no-code-ui"
   ],
   "author": "actuallyakash",
   "license": "MIT",
