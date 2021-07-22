@@ -64,27 +64,19 @@ function spacers( options ) {
         let spacerLock = options.enableLock ? '<span class="spacer-lock unlocked">' + unlockIcon + '</span>' : '';
 
         spacingProperties.forEach( property => {
-            switch( property ) {
-                case 'padding':
-                    spacingDimensions.forEach( dim => {
+            
+            spacingDimensions.forEach( dim => {
 
-                        spacerSize = ( padding[dim] == "" ? defaultSpacing : padding[dim] );
+                if( property == 'padding' ) {
+                    spacerSize = ( padding[dim] == "" ? defaultSpacing : padding[dim] );
+                } else if( property == 'margin' ) {
+                    spacerSize = ( margin[dim] == "" ? defaultSpacing : margin[dim] );
+                }
 
-                        spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( hideSpacingValue ? 'display-none ' : '' ) +'spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span>'+ showLabel + spacerLock + '</span> </div>';
+                spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( hideSpacingValue ? 'display-none ' : '' ) +'spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span>'+ showLabel + spacerLock + '</span> </div>';
 
-                    });
-                break;
+            });
 
-                case 'margin':
-                    spacingDimensions.forEach( dim => {
-
-                        spacerSize = ( margin[dim] == "" ? defaultSpacing : margin[dim] );
-
-                        spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( hideSpacingValue ? 'display-none ' : '' ) +'spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span>'+ showLabel + spacerLock + '</span> </div>';
-
-                    });
-                break;
-            }
         });
 
         html = '<div class="spacer-wrapper' + showOnHover + '">' + spacerDivs + '</div>';
