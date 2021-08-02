@@ -33,6 +33,13 @@ npm install spacersjs
 <script src="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.js"></script>
 ```
 
+#### Bookmarklet
+Try spacers quickly on any webpage through bookmarklet.
+
+<a href='javascript: (() => {var spacerScript=document.createElement("script");spacerScript.type="text/javascript",spacerScript.src="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.js",document.getElementsByTagName("head")[0].appendChild(spacerScript);var spacersStyles=document.createElement("link");spacersStyles.rel="stylesheet",spacersStyles.type="text/css",spacersStyles.href="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.css",document.head.appendChild(spacersStyles),spacerScript.onload=function(){spacers({element:"*",showOnHover:!0,enableLock:!0,onDragEnd:function(e){console.log(e)}}),alert("Spacers active!")};})();'><img src="https://img.shields.io/badge/Spacers-↔-blue" /></a>
+
+drag this button to the bookmark bar of your browser.
+
 ### Settings
 
 **Option**|**Type**|**Default**|**Description**
