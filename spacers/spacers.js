@@ -49,9 +49,9 @@ function spacers( options ) {
         default: appendHtml = 'afterbegin';
     }
 
-    elements.forEach( (element) => {
+    elements.forEach( ( element ) => {
 
-        let spacerId = Array(6).fill(0).map(x => Math.random().toString(36).charAt(2)).join('');
+        let spacerId = Array( 6 ).fill( 0 ).map( x => Math.random().toString( 36 ).charAt( 2 ) ).join( '' );
 
         element.classList.add( 'spacer-initialised' );
 
@@ -73,7 +73,7 @@ function spacers( options ) {
                     spacerSize = ( margin[dim] == "" ? defaultSpacing : margin[dim] );
                 }
 
-                spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension(dim) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( hideSpacingValue ? 'display-none ' : '' ) +'spacer-size">'+ (spacerSize == '' ? '0' : spacerSize) +'</span>'+ showLabel + spacerLock + '</span> </div>';
+                spacerDivs += '<div data-size="'+ spacerSize +'" data-type="'+ property +'" data-id="'+ spacerId +'" class="spacer spacer-' + spacerId + ' spacer-'+ dim +'" data-dragging="'+ getOppositeDimension( dim ) +'" data-position="'+ dim +'"> <span class="spacer-indicator"> <span class="'+ ( hideSpacingValue ? 'display-none ' : '' ) +'spacer-size">'+ ( spacerSize == '' ? '0' : spacerSize ) +'</span>'+ showLabel + spacerLock + '</span> </div>';
 
             });
 
@@ -88,19 +88,19 @@ function spacers( options ) {
         // Adding spacer functionality
         let startX, startY, startWidth, startHeight, position, dragSide;
 
-        spacers.forEach(spacer => {
+        spacers.forEach( spacer => {
             
             // Adding default spacing
             document.documentElement.style.setProperty( '--spacer-size', defaultSpacing + spacingUnit );
 
             // Addding custom-defined classes
             if ( options.spacerClass ) {
-                spacer.classList.add( ...options.spacerClass.split(' ') );
+                spacer.classList.add( ...options.spacerClass.split( ' ' ) );
             }
 
             // Adding default spacing
-            spacerValue = ( spacer.getAttribute('data-size') ? spacer.getAttribute('data-size') : defaultSpacing ) + spacingUnit;
-            spacerPosition = spacer.getAttribute('data-position');
+            spacerValue = ( spacer.getAttribute( 'data-size' ) ? spacer.getAttribute( 'data-size' ) : defaultSpacing ) + spacingUnit;
+            spacerPosition = spacer.getAttribute( 'data-position' );
 
             if( spacerPosition == "top" || spacerPosition == "bottom" ) {
                 spacer.style.height = spacerValue;
@@ -109,7 +109,7 @@ function spacers( options ) {
                 spacer.style.width = spacerValue;
             }
 
-            spacer.addEventListener('mousedown', ( event ) => {
+            spacer.addEventListener( 'mousedown', ( event ) => {
                 // Starting height and width
                 startHeight = spacer.offsetHeight;
                 startWidth = spacer.offsetWidth;
@@ -127,7 +127,7 @@ function spacers( options ) {
             startY = event.clientY;
 
             currentSpacer = spacer;
-            spacerType = currentSpacer.getAttribute("data-type");
+            spacerType = currentSpacer.getAttribute( 'data-type' );
             
             document.documentElement.addEventListener( 'mousemove', doDrag, false );
             document.documentElement.addEventListener( 'mouseup', stopDrag, false );
@@ -137,11 +137,11 @@ function spacers( options ) {
             
             let spacingValue;
             if( position == 'top' || position == 'bottom' ) {
-                spacingValue = (startHeight + e.clientY - startY);
+                spacingValue = ( startHeight + e.clientY - startY );
             }
 
             if( position == 'left' || position == 'right' ) {
-                spacingValue = ( dragSide == 'left' ? (startWidth - e.clientX + startX) : (startWidth + e.clientX - startX) );
+                spacingValue = ( dragSide == 'left' ? ( startWidth - e.clientX + startX ) : ( startWidth + e.clientX - startX ) );
             }
 
             // No negatives for now
@@ -154,17 +154,17 @@ function spacers( options ) {
 
             // updating data-size attribute and size value
             currentSpacer.setAttribute( 'data-size', spacingValue );
-            currentSpacer.querySelector('.spacer-indicator .spacer-size').innerText = spacingValue;
+            currentSpacer.querySelector( '.spacer-indicator .spacer-size' ).innerText = spacingValue;
 
             spacingValue += spacingUnit;
 
             // Checking for locked spacers
-            if( currentSpacer.classList.contains('spacer-locked') ) {
+            if( currentSpacer.classList.contains( 'spacer-locked' ) ) {
                 getOppositeSpacer( element, currentSpacer, spacingValue );
             }
 
             // Applying padding/margin
-            oppositeProperty = spacerType + position.charAt(0).toUpperCase() + position.substring(1);
+            oppositeProperty = spacerType + position.charAt( 0 ).toUpperCase() + position.substring( 1 );
             if ( position == 'top' || position == 'bottom' ) {
                 currentSpacer.style.height = spacingValue == 0 + spacingUnit ? ( defaultSpacing + spacingUnit ) : spacingValue;
                 element.style[oppositeProperty] = spacingValue;
@@ -187,15 +187,15 @@ function spacers( options ) {
             let  data = {};
 
             if( enablePadding ) {
-                Object.assign( data, { 'padding': padding });
+                Object.assign( data, { 'padding': padding } );
             }
 
             if( enableMargin ) {
-                Object.assign( data, { 'margin': margin });
+                Object.assign( data, { 'margin': margin } );
             }
 
             if( options.onDragEnd ) {
-                options.onDragEnd(data);
+                options.onDragEnd( data );
             }
             
         }
@@ -243,7 +243,7 @@ function spacers( options ) {
 
             // Applying pseudo padding/margin for opposite spacer
             setPropertyValue( oppositeSpacerType, oppositeSpacerDim, parseInt( spacerValue, 10 ) );
-            let oppositeProperty = oppositeSpacerType + oppositeSpacerDim.charAt(0).toUpperCase() + oppositeSpacerDim.substring(1);
+            let oppositeProperty = oppositeSpacerType + oppositeSpacerDim.charAt( 0 ).toUpperCase() + oppositeSpacerDim.substring( 1 );
             element.style[oppositeProperty] = spacerValue;
         }
 
