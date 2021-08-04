@@ -115,3 +115,23 @@
 .some-dope-class {
     background: #21f749 !important;
 }
+
+.center {
+    text-align: center;
+}
+
+.bookmarklet-btn {
+    padding: 0.75rem 1rem;
+    cursor: move;
+    color: rgba(32, 28, 28, 0.7);
+    background-color: rgb(11 10 10 / 8%);
+    border-color: rgb(17 12 12 / 20%);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.3rem;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.bookmarklet-btn:hover {
+    text-decoration: none;
+}

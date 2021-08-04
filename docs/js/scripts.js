@@ -97,8 +97,18 @@ spacers({
 
 spacers({
     element: '.onDragEnd-prop',
-    onDragEnd: function (data) {
+    onDragEnd: function ( data ) {
         // do some magic with this data here.
-        console.log(data);
+        console.log( data );
     }
 });
+
+// disabling bookmarklet click on docs page
+var bookmarklet = document.getElementById( 'bookmarklet' );
+if ( window.addEventListener ) {
+    document.addEventListener( 'click', function ( e ) {
+        if ( e.target.id === bookmarklet.id ) {
+            e.preventDefault();
+        }
+    });
+}

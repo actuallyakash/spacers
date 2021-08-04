@@ -33,6 +33,15 @@ npm install spacersjs
 <script src="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.js"></script>
 ```
 
+#### Bookmarklet
+Try spacers quickly on any webpage through the bookmarklet.
+
+```javascript
+javascript: (() => {var spacerScript=document.createElement("script");spacerScript.type="text/javascript",spacerScript.src="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.js",document.getElementsByTagName("head")[0].appendChild(spacerScript);var spacersStyles=document.createElement("link");spacersStyles.rel="stylesheet",spacersStyles.type="text/css",spacersStyles.href="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.css",document.head.appendChild(spacersStyles),spacerScript.onload=function(){spacers({element:"*",showOnHover:!0,enableLock:!0,onDragEnd:function(e){console.log(e)}}),alert("Spacers active!")};})();
+```
+
+> <small><b>Note:</b> May not work on some websites due to Content Security Policy.</small>
+
 ### Settings
 
 **Option**|**Type**|**Default**|**Description**

@@ -165,6 +165,14 @@
                      </code>
 </pre>
                   <p>Quickly fire up the spacers with the CDN.</p>
+
+                  <div class="center">
+                     <p>Or try it out with a bookmarklet</p>
+
+                     <p><a id="bookmarklet" href='javascript: (() => {var spacerScript=document.createElement("script");spacerScript.type="text/javascript",spacerScript.src="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.js",document.getElementsByTagName("head")[0].appendChild(spacerScript);var spacersStyles=document.createElement("link");spacersStyles.rel="stylesheet",spacersStyles.type="text/css",spacersStyles.href="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.css",document.head.appendChild(spacersStyles),spacerScript.onload=function(){spacers({element:"*",showOnHover:!0,enableLock:!0,onDragEnd:function(e){console.log(e)}}),alert("Spacers active!")};})();' class="bookmarklet-btn">SpacersJS</a></p>
+
+                     <p><small>drag this button to the bookmark bar of your browser.</small></p>
+                  </div>
                </div>
 
                <div class="docs-section" id="settings">
