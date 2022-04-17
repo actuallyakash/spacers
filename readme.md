@@ -25,12 +25,17 @@ npm install spacersjs
 
 ```html
 # unpkg
-<link rel="stylesheet" href="https://unpkg.com/spacersjs/spacers/spacers.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spacersjs/spacers/spacers.min.css" />
 <script src="https://unpkg.com/spacersjs/spacers/spacers.min.js"></script>
 
 # jsDelivr
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/spacersjs/spacers/spacers.min.js"></script>
+
+# CDNjs
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spacersjs/1.0.6/spacers.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spacersjs/1.0.6/spacers.min.js"></script>
+
 ```
 
 #### Bookmarklet
