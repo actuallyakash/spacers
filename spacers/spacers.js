@@ -2,8 +2,8 @@
 (っ◔◡◔)っ ♥ 𝒔𝒑𝒂𝒄𝒆𝒓𝒔.𝒋𝒔 ♥
 
  Version: 1.0.5
-  Author: Akash Gupta
- Website: http://akashgupta.xyz
+  Author: actuallyakash
+ Website: https://actuallyakash.github.io
     Docs: https://actuallyakash.github.io/spacers
     Repo: https://github.com/actuallyakash/spacers
   Issues: https://github.com/actuallyakash/spacers/issues
