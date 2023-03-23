@@ -55,14 +55,14 @@ element|string|null|Selector on which the spacer has to be initialized
 appendHtml|string|begin|To append spacer divs after or before the specified `element`. Use `begin` to append before the selector and `end` to append after the selector.
 padding|boolean|true|To enable padding, which is default behavior
 margin|boolean|false|To enable margin
-onDragEnd|boolean|null|Function for using the spacer values when drag is ended
+onDragEnd|function|null|Function for using the spacer values when drag is ended
 containedArea|object (DOM node or jQuery object) or window.document|Use if you're not able to find the element (ex- when using iframe)
-spacerClass|object|null|For adding custom classes in the spacers
+spacerClass|string|null|For adding custom classes in the spacers
 defaultSpacing|string|8|Initial starting spacer height.
 defaultPadding|object|null|an object with initial padding spacer top, bottom, left, right values. Overwrites the `defaultSpacing` parameter
 defaultMargin|object|null|an object with initial margin spacer top, bottom, left, right values. Overwrites the `defaultSpacing` parameter
 spacingUnit|string|px|Change default spacing unit of spacers like em, rem, in, cm ..etc
-showOnHover|string|false|Show spacers only on hover
+showOnHover|boolean|false|Show spacers only on hover
 hideSpacingValue|boolean|false|Hides the margin/padding values at the center of the spacer
 showLabel|string|null|Enable and set the label to specified string beside the spacing value
 enableLock|boolean|false|Link opposite spacers
