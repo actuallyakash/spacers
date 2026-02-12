@@ -1,7 +1,7 @@
 /*
 (っ◔◡◔)っ ♥ 𝒔𝒑𝒂𝒄𝒆𝒓𝒔.𝒋𝒔 ♥
 
- Version: 1.0.5
+ Version: 1.0.6
   Author: actuallyakash
  Website: https://actuallyakash.github.io
     Docs: https://actuallyakash.github.io/spacers
@@ -9,6 +9,8 @@
   Issues: https://github.com/actuallyakash/spacers/issues
  */
 function spacers( options ) {
+
+    'use strict';
 
     let document = options.containedArea ? options.containedArea : window.document;
     let elements = document.querySelectorAll( options.element );
@@ -55,8 +57,19 @@ function spacers( options ) {
 
         element.classList.add( 'spacer-initialised' );
 
-        // settings element's position relative
-        element.style.position = "relative";
+        // Ensure element is a positioning context for absolutely-positioned spacers.
+        // Avoid clobbering author styles when already non-static.
+        try {
+            let computedPosition = window.getComputedStyle( element ).position;
+            if ( computedPosition === 'static' ) {
+                if ( element.getAttribute( 'data-spacers-original-position' ) === null ) {
+                    element.setAttribute( 'data-spacers-original-position', element.style.position || '' );
+                }
+                element.style.position = 'relative';
+            }
+        } catch ( e ) {
+            element.style.position = 'relative';
+        }
 
         let spacerSize, spacerDivs = '';
         let lockIcon = options.lockIcon ? options.lockIcon : '<span class="icon"></span>';
@@ -87,6 +100,7 @@ function spacers( options ) {
 
         // Adding spacer functionality
         let startX, startY, startWidth, startHeight, position, dragSide;
+        let currentSpacer, spacerType, oppositeProperty;
 
         spacers.forEach( spacer => {
             
@@ -99,8 +113,8 @@ function spacers( options ) {
             }
 
             // Adding default spacing
-            spacerValue = ( spacer.getAttribute( 'data-size' ) ? spacer.getAttribute( 'data-size' ) : defaultSpacing ) + spacingUnit;
-            spacerPosition = spacer.getAttribute( 'data-position' );
+            let spacerValue = ( spacer.getAttribute( 'data-size' ) ? spacer.getAttribute( 'data-size' ) : defaultSpacing ) + spacingUnit;
+            let spacerPosition = spacer.getAttribute( 'data-position' );
 
             if( spacerPosition == "top" || spacerPosition == "bottom" ) {
                 spacer.style.height = spacerValue;
@@ -110,6 +124,10 @@ function spacers( options ) {
             }
 
             spacer.addEventListener( 'mousedown', ( event ) => {
+                // Ignore lock clicks; lock has its own handler.
+                if ( event.target && event.target.closest && event.target.closest( '.spacer-lock' ) ) {
+                    return;
+                }
                 // Starting height and width
                 startHeight = spacer.offsetHeight;
                 startWidth = spacer.offsetWidth;
@@ -265,7 +283,14 @@ function spacers( options ) {
         
             lock.classList.add( 'lock-active' );
             
-            lock.addEventListener( 'mousedown', function() {
+            lock.addEventListener( 'mousedown', function( e ) {
+                // Prevent lock interaction from triggering spacer drag.
+                if ( e && e.preventDefault ) {
+                    e.preventDefault();
+                }
+                if ( e && e.stopPropagation ) {
+                    e.stopPropagation();
+                }
         
                 let currentState = lock.classList;
                 
