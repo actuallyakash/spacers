@@ -64,7 +64,7 @@
     left: 0;
 }
 
-.spacer[data-type=padding].spacer[data-position=left] {
+.spacer[data-type=padding].spacer[data-position=right] {
     right: 0;
 }
 
